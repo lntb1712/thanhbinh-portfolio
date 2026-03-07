@@ -4,11 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const skillGroups = [
-  { title: "Ngôn ngữ", items: ["C#", "Dart", "TypeScript"] },
+  { title: "Languages", items: ["C#", "Dart", "TypeScript"] },
   { title: "Back-end", items: ["ASP.NET Core", "RESTful APIs"] },
   { title: "Database", items: ["SQL Server", "SQLite"] },
   { title: "Front-end", items: ["Flutter", "React Native", "Vue.js"] },
-  { title: "Khác", items: ["JWT", "SOLID", "Docker", "LINQ", "Azure", "Quartz", "OneSignal"] },
+  { title: "Other", items: ["JWT", "SOLID", "Docker", "LINQ", "Azure", "Quartz", "OneSignal"] },
 ];
 
 const experiences = [
@@ -17,10 +17,10 @@ const experiences = [
     company: "Nam Phuong Technology",
     period: "11/2025 – 02/2026",
     details: [
-      "Phát triển và bảo trì hệ thống doanh nghiệp: eOffice, logistics, inventory.",
-      "Triển khai phân quyền người dùng nội bộ và bên ngoài.",
-      "Xây dựng module tồn kho (nhập/xuất/tồn) và lịch làm việc.",
-      "Hỗ trợ triển khai và cải thiện độ ổn định hệ thống trên Azure.",
+      "Developed and maintained enterprise systems including eOffice, logistics, and inventory.",
+      "Implemented authorization and access control for internal and external users.",
+      "Built inventory modules (inbound/outbound/stock) and employee scheduling features.",
+      "Supported deployment and improved system stability on Azure.",
     ],
   },
 ];
@@ -29,21 +29,21 @@ const projects = [
   {
     name: "E-Office",
     period: "12/2025 – 02/2026",
-    description: "Hệ thống eOffice nội bộ quản lý tài liệu, quy trình phê duyệt, chat nội bộ và luồng ủy quyền số.",
+    description: "An internal eOffice platform for document management, approval workflows, internal chat, and digital authorization processes.",
     team: "Team size: 6",
     stack: ["ASP.NET Core Web API", "SQL Server", "SOLID", "LINQ", "Azure", "OneSignal"],
   },
   {
     name: "Aircraft Catering Delivery",
     period: "01/2026 – 02/2026",
-    description: "Hệ thống quản lý giao suất ăn hàng không: điều phối giao hàng, kiểm soát kho, và lập lịch nhân sự.",
+    description: "A catering delivery management system for airline meals, inventory control, and employee scheduling.",
     team: "Team size: 6",
     stack: ["ASP.NET Core Web API", "SQL Server", "Quartz", "SOLID", "LINQ", "Azure"],
   },
   {
     name: "Chrome Operation Management System",
     period: "06/2025 – 08/2025",
-    description: "Hệ thống tối ưu quy trình tồn kho và sản xuất, nâng cao khả năng theo dõi, ra quyết định và giảm chi phí.",
+    description: "A system to optimize inventory and production workflows, improving tracking, decision-making, and cost efficiency.",
     team: "Team size: 2",
     stack: ["C# WPF", "Flutter", "ASP.NET Core Web API", "SQL Server", "JWT", "DI"],
     github: "https://github.com/lntb1712/Chrome.git",
@@ -80,7 +80,7 @@ const Index = () => {
           </div>
           <Button asChild size="sm" variant="secondary" className="md:inline-flex">
             <a href="/LeNguyenThanhBinh_Backend.pdf" download>
-              Tải CV
+              Download CV
             </a>
           </Button>
         </nav>
@@ -99,13 +99,13 @@ const Index = () => {
             </h1>
 
             <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-              Xin chào, mình là <span className="text-foreground">Lê Nguyễn Thanh Bình</span> — tập trung vào ASP.NET Core, thiết kế RESTful APIs,
-              và tối ưu database để ship sản phẩm production-ready.
+              Hi, I'm <span className="text-foreground">Lê Nguyễn Thanh Bình</span> — focused on ASP.NET Core, RESTful API design,
+              and database optimization to deliver production-ready software.
             </p>
 
             <div className="flex flex-wrap gap-3">
               <Button asChild>
-                <a href="#contact">Liên hệ ngay</a>
+                <a href="#contact">Contact Me</a>
               </Button>
               <Button asChild variant="outline">
                 <a href="https://github.com/lntb1712" target="_blank" rel="noreferrer">
@@ -138,8 +138,8 @@ const Index = () => {
           <h2 className="text-3xl font-semibold">About</h2>
           <Card className="portfolio-panel border-border/50">
             <CardContent className="p-6 leading-relaxed text-muted-foreground">
-              Developer có kinh nghiệm với C#, Flutter, Vue.js, React Native và SQL Server; tập trung xây dựng API hiệu năng cao,
-              maintainable architecture, và quy trình triển khai ổn định cho sản phẩm doanh nghiệp.
+              A developer experienced with C#, Flutter, Vue.js, React Native, and SQL Server, focused on high-performance APIs,
+              maintainable architecture, and reliable deployment workflows for enterprise products.
             </CardContent>
           </Card>
         </section>
@@ -210,7 +210,7 @@ const Index = () => {
                   {project.github ? (
                     <Button asChild variant="outline" className="mt-auto w-fit border-primary/50 bg-background/30 hover:bg-accent/50">
                       <a href={project.github} target="_blank" rel="noreferrer">
-                        Xem source code
+                        View Source Code
                       </a>
                     </Button>
                   ) : null}
@@ -225,11 +225,11 @@ const Index = () => {
             <CardContent className="grid gap-5 p-6 md:grid-cols-[1.1fr_0.9fr] md:items-center md:p-8">
               <div>
                 <h2 className="text-3xl font-semibold">Contact</h2>
-                <p className="mt-2 text-muted-foreground">Sẵn sàng cho cơ hội Back-end Developer và các dự án thực tế.</p>
+                <p className="mt-2 text-muted-foreground">Open to Back-end Developer opportunities and real-world product projects.</p>
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 <Button asChild>
-                  <a href="mailto:your-email@example.com">Email (cập nhật)</a>
+                  <a href="mailto:your-email@example.com">Email (update)</a>
                 </Button>
                 <Button asChild variant="outline">
                   <a href="https://github.com/lntb1712" target="_blank" rel="noreferrer">
