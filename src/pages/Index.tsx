@@ -119,6 +119,7 @@ const Index = () => {
           <Card className="portfolio-panel border-border/50">
             <CardHeader className="items-center text-center">
               <Avatar className="h-24 w-24 border border-border/60">
+                <AvatarImage src={profileAvatar} alt="Portrait of Lê Nguyễn Thanh Bình" className="object-cover" />
                 <AvatarFallback className="bg-primary/15 text-lg font-semibold text-primary-foreground">LB</AvatarFallback>
               </Avatar>
               <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
