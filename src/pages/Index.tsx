@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import NetworkSpeedTool from "@/components/NetworkSpeedTool";
 import profileAvatar from "@/assets/profile-avatar.jpg";
 
 const skillGroups = [
