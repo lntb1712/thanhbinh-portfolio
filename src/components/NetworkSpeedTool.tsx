@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
+import { Activity, ChevronDown, ChevronUp } from "lucide-react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
-import { Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
@@ -124,11 +124,12 @@ const NetworkSpeedTool = () => {
           </div>
           <Button
             variant="ghost"
-            size="sm"
-            className="h-6 px-2 text-[10px]"
+            size="icon"
+            className="h-6 w-6"
+            aria-label={collapsed ? "Hiện biểu đồ tốc độ mạng" : "Ẩn biểu đồ tốc độ mạng"}
             onClick={() => setCollapsed((prev) => !prev)}
           >
-            {collapsed ? "Hiện" : "Ẩn"}
+            {collapsed ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
           </Button>
         </div>
 
