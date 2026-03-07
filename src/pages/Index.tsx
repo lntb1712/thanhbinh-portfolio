@@ -227,6 +227,11 @@ const Index = () => {
           </div>
         </section>
 
+        <section id="network" className="space-y-5 md:space-y-6">
+          <h2 className="text-2xl font-semibold md:text-3xl">Network Speed</h2>
+          <NetworkSpeedTool />
+        </section>
+
         <section id="contact" className="pb-8 md:pb-10">
           <Card className="portfolio-panel border-border/50 bg-gradient-to-r from-card/70 to-accent/30">
             <CardContent className="grid gap-4 p-5 md:grid-cols-[1.1fr_0.9fr] md:items-center md:gap-5 md:p-8">
