@@ -118,7 +118,10 @@ const NetworkSpeedTool = () => {
     <Card className="portfolio-panel fixed bottom-3 left-3 z-50 w-[165px] border-border/60 bg-background/85 shadow-lg backdrop-blur-xl sm:bottom-4 sm:left-4 sm:w-[190px]">
       <CardContent className="p-2.5">
         <div className="mb-1 flex items-center justify-between gap-2">
-          <p className="text-[9px] font-semibold tracking-[0.08em] text-muted-foreground">NET</p>
+          <div className="flex items-center gap-1 text-muted-foreground" aria-label="Network Speed Monitor">
+            <Activity size={12} />
+            <span className="sr-only">Network Speed Monitor</span>
+          </div>
           <Button
             variant="ghost"
             size="sm"
