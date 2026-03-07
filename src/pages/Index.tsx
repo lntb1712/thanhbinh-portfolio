@@ -58,7 +58,6 @@ const navItems = [
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
-  { href: "#network", label: "Network" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -227,10 +226,6 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="network" className="space-y-5 md:space-y-6">
-          <h2 className="text-2xl font-semibold md:text-3xl">Network Speed</h2>
-          <NetworkSpeedTool />
-        </section>
 
         <section id="contact" className="pb-8 md:pb-10">
           <Card className="portfolio-panel border-border/50 bg-gradient-to-r from-card/70 to-accent/30">
@@ -255,6 +250,8 @@ const Index = () => {
           </Card>
         </section>
       </main>
+
+      <NetworkSpeedTool />
 
       <footer className="border-t border-border/40 py-5 md:py-6">
         <div className="container text-center text-xs text-muted-foreground md:text-sm">
