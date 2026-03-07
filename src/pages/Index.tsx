@@ -1,7 +1,8 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import profileAvatar from "@/assets/profile-avatar.jpg";
 
 const skillGroups = [
   { title: "Languages", items: ["C#", "Dart", "TypeScript"] },
@@ -118,6 +119,7 @@ const Index = () => {
           <Card className="portfolio-panel border-border/50">
             <CardHeader className="items-center text-center">
               <Avatar className="h-24 w-24 border border-border/60">
+                <AvatarImage src={profileAvatar} alt="Portrait of Lê Nguyễn Thanh Bình" className="object-cover" />
                 <AvatarFallback className="bg-primary/15 text-lg font-semibold text-primary-foreground">LB</AvatarFallback>
               </Avatar>
               <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
@@ -229,7 +231,7 @@ const Index = () => {
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 <Button asChild>
-                  <a href="mailto:your-email@example.com">Email (update)</a>
+                  <a href="mailto:lntb2003@gmail.com">lntb2003@gmail.com</a>
                 </Button>
                 <Button asChild variant="outline">
                   <a href="https://github.com/lntb1712" target="_blank" rel="noreferrer">
