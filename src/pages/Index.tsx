@@ -231,7 +231,7 @@ const Index = () => {
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 <Button asChild>
-                  <a href="mailto:your-email@example.com">Email (update)</a>
+                  <a href="mailto:lntb2003@gmail.com">lntb2003@gmail.com</a>
                 </Button>
                 <Button asChild variant="outline">
                   <a href="https://github.com/lntb1712" target="_blank" rel="noreferrer">
