@@ -1,3 +1,4 @@
+import cvPdf from "@/assets/LeNguyenThanhBinh_Backend.pdf";
 import profileAvatar from "@/assets/profile-avatar.jpg";
 import NetworkSpeedTool from "@/components/NetworkSpeedTool";
 import ScrollReveal from "@/components/ScrollReveal";
@@ -83,7 +84,7 @@ const Index = () => {
             ))}
           </div>
           <Button asChild size="sm" variant="secondary" className="h-8 px-3 text-xs md:h-9 md:px-4 md:text-sm">
-            <a href="/LeNguyenThanhBinh_Backend.pdf" target="_blank" rel="noreferrer">
+            <a href={cvPdf} download="LeNguyenThanhBinh_Backend.pdf">
               Download CV
             </a>
           </Button>
@@ -275,3 +276,4 @@ const Index = () => {
 };
 
 export default Index;
+
