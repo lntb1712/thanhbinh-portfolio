@@ -21,9 +21,9 @@ type SpeedPoint = {
   speed: number;
 };
 
-const TEST_FILE_URL = "/LeNguyenThanhBinh_Backend.pdf";
-const TEST_ROUNDS = 2;
-const MEASURE_INTERVAL_MS = 15000;
+const TEST_FILE_URL = "https://speed.cloudflare.com/__down?bytes=500000";
+const TEST_ROUNDS = 1;
+const MEASURE_INTERVAL_MS = 30000;
 const MAX_POINTS = 8;
 
 const chartConfig = {

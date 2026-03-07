@@ -123,7 +123,7 @@ const Index = () => {
 
             <Card className="portfolio-panel mx-auto w-full max-w-md border-border/50 md:mx-0">
               <CardHeader className="items-center text-center">
-                <Avatar className="h-20 w-20 border border-border/60 md:h-24 md:w-24">
+                <Avatar className="h-20 w-20 border border-border/60 md:h-24 md:w-24 -mt-5">
                   <AvatarImage src={profileAvatar} alt="Portrait of Lê Nguyễn Thanh Bình" className="object-cover" />
                   <AvatarFallback className="bg-primary/15 text-lg font-semibold text-primary-foreground">LB</AvatarFallback>
                 </Avatar>
@@ -142,7 +142,7 @@ const Index = () => {
         </ScrollReveal>
 
         <ScrollReveal direction="right">
-          <section id="about" className="grid gap-4 md:grid-cols-[0.85fr_1.15fr] md:gap-6 md:items-start">
+          <section id="about" className="space-y-5 md:space-y-6">
             <h2 className="text-2xl font-semibold md:text-3xl">About</h2>
             <Card className="portfolio-panel border-border/50">
               <CardContent className="p-5 text-sm leading-relaxed text-muted-foreground md:p-6 md:text-base">
