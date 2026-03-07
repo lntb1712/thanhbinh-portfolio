@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 import { Line, LineChart, XAxis, YAxis } from "recharts";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { ChartContainer, type ChartConfig } from "@/components/ui/chart";
 
@@ -22,7 +23,7 @@ type SpeedPoint = {
 const TEST_FILE_URL = "/LeNguyenThanhBinh_Backend.pdf";
 const TEST_ROUNDS = 2;
 const MEASURE_INTERVAL_MS = 15000;
-const MAX_POINTS = 14;
+const MAX_POINTS = 8;
 
 const chartConfig = {
   speed: {
@@ -49,6 +50,7 @@ const getConnectionInfo = (): ConnectionInfo => {
 const NetworkSpeedTool = () => {
   const [result, setResult] = useState<SpeedResult | null>(null);
   const [history, setHistory] = useState<SpeedPoint[]>([]);
+  const [collapsed, setCollapsed] = useState(false);
   const measuringRef = useRef(false);
 
   const measureSpeed = useCallback(async () => {
@@ -112,25 +114,38 @@ const NetworkSpeedTool = () => {
   }, [measureSpeed]);
 
   return (
-    <Card className="portfolio-panel fixed bottom-4 left-3 z-50 w-[220px] border-border/60 bg-background/85 shadow-lg backdrop-blur-xl sm:bottom-5 sm:left-5 sm:w-[260px]">
-      <CardContent className="space-y-2 p-3">
-        <p className="text-[10px] font-semibold tracking-[0.08em] text-muted-foreground">NETWORK MONITOR</p>
-        <p className="text-base font-semibold text-foreground">{formatSpeed(result?.measuredMbps)} Mbps</p>
+    <Card className="portfolio-panel fixed bottom-3 left-3 z-50 w-[165px] border-border/60 bg-background/85 shadow-lg backdrop-blur-xl sm:bottom-4 sm:left-4 sm:w-[190px]">
+      <CardContent className="p-2.5">
+        <div className="mb-1 flex items-center justify-between gap-2">
+          <p className="text-[9px] font-semibold tracking-[0.08em] text-muted-foreground">NET</p>
+          <Button
+            variant="ghost"
+            size="sm"
+            className="h-6 px-2 text-[10px]"
+            onClick={() => setCollapsed((prev) => !prev)}
+          >
+            {collapsed ? "Hiện" : "Ẩn"}
+          </Button>
+        </div>
 
-        <ChartContainer config={chartConfig} className="h-20 w-full">
-          <LineChart data={history} margin={{ top: 6, right: 4, left: -20, bottom: 0 }}>
-            <XAxis dataKey="time" hide />
-            <YAxis hide domain={[0, "auto"]} />
-            <Line
-              type="monotone"
-              dataKey="speed"
-              stroke="var(--color-speed)"
-              strokeWidth={2}
-              dot={false}
-              isAnimationActive={false}
-            />
-          </LineChart>
-        </ChartContainer>
+        <p className="text-sm font-semibold text-foreground">{formatSpeed(result?.measuredMbps)} Mbps</p>
+
+        {!collapsed ? (
+          <ChartContainer config={chartConfig} className="mt-1.5 h-14 w-full">
+            <LineChart data={history} margin={{ top: 6, right: 2, left: -24, bottom: 0 }}>
+              <XAxis dataKey="time" hide />
+              <YAxis hide domain={[0, "auto"]} />
+              <Line
+                type="monotone"
+                dataKey="speed"
+                stroke="var(--color-speed)"
+                strokeWidth={1.5}
+                dot={false}
+                isAnimationActive={false}
+              />
+            </LineChart>
+          </ChartContainer>
+        ) : null}
       </CardContent>
     </Card>
   );
