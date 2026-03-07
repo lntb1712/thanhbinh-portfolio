@@ -76,37 +76,58 @@ const navItems = [
   { href: "#contact", label: "Liên hệ" },
 ];
 
+const highlights = [
+  { label: "Kinh nghiệm thực chiến", value: "3+ dự án" },
+  { label: "GPA", value: "3.1 / 4.0" },
+  { label: "Core stack", value: "ASP.NET Core" },
+];
+
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <header className="sticky top-0 z-30 border-b bg-background/90 backdrop-blur">
+    <div className="relative min-h-screen scroll-smooth overflow-x-clip bg-background text-foreground">
+      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute left-[-15%] top-[-8rem] h-72 w-72 rounded-full bg-primary/15 blur-3xl md:h-96 md:w-96" />
+        <div className="absolute right-[-12%] top-[22rem] h-80 w-80 rounded-full bg-accent/40 blur-3xl md:h-[28rem] md:w-[28rem]" />
+        <div className="absolute bottom-[-10rem] left-1/3 h-72 w-72 rounded-full bg-secondary/70 blur-3xl md:h-96 md:w-96" />
+      </div>
+
+      <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-lg">
         <nav className="container flex h-16 items-center justify-between">
-          <a href="#home" className="text-sm font-semibold tracking-wide">
-            LÊ NGUYỄN THANH BÌNH
+          <a href="#home" className="text-sm font-semibold tracking-[0.2em]">
+            LNTB
           </a>
-          <div className="hidden items-center gap-5 md:flex">
+          <div className="hidden items-center gap-6 md:flex">
             {navItems.map((item) => (
               <a key={item.href} href={item.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground">
                 {item.label}
               </a>
             ))}
           </div>
+          <Button asChild size="sm" className="hidden md:inline-flex">
+            <a href="/LeNguyenThanhBinh_Backend.pdf" download>
+              Tải CV
+            </a>
+          </Button>
         </nav>
       </header>
 
-      <main id="home" className="container space-y-20 py-12 md:py-16">
-        <section className="grid items-center gap-10 md:grid-cols-[1.2fr_0.8fr]">
-          <div className="space-y-6">
-            <Badge variant="secondary" className="w-fit">
-              Back-end Developer
+      <main id="home" className="container space-y-20 py-10 md:space-y-24 md:py-16">
+        <section className="grid items-start gap-8 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
+          <div className="relative space-y-6 md:space-y-8">
+            <Badge variant="secondary" className="w-fit rounded-full px-4 py-1 text-xs tracking-wide">
+              BACK-END DEVELOPER
             </Badge>
-            <h1 className="text-4xl font-bold leading-tight md:text-5xl">
-              Xây dựng hệ thống API scalable, maintainable và sẵn sàng production
+
+            <h1 className="max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">
+              Lê Nguyễn Thanh Bình —
+              <span className="block text-muted-foreground">Build backend systems that scale cleanly.</span>
             </h1>
+
             <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-              Xin chào, mình là <strong>Lê Nguyễn Thanh Bình</strong>. Mình tập trung vào ASP.NET Core, thiết kế RESTful APIs,
-              tối ưu database và triển khai giải pháp ổn định cho sản phẩm doanh nghiệp.
+              Mình tập trung vào <strong className="text-foreground">ASP.NET Core</strong>, API design và database optimization để tạo ra sản
+              phẩm ổn định, dễ mở rộng và dễ maintain cho doanh nghiệp.
             </p>
+
             <div className="flex flex-wrap gap-3">
               <Button asChild>
                 <a href="#contact">Liên hệ ngay</a>
@@ -122,50 +143,61 @@ const Index = () => {
                 </a>
               </Button>
             </div>
+
+            <div className="grid gap-3 sm:grid-cols-3">
+              {highlights.map((item) => (
+                <Card key={item.label} className="border-border/70 bg-card/80 backdrop-blur">
+                  <CardContent className="p-4">
+                    <p className="text-xs uppercase tracking-wide text-muted-foreground">{item.label}</p>
+                    <p className="mt-1 text-sm font-semibold">{item.value}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
 
-          <Card className="border-border/60">
-            <CardHeader className="items-center text-center">
-              <Avatar className="h-24 w-24">
-                <AvatarFallback className="text-xl font-semibold">LB</AvatarFallback>
-              </Avatar>
-              <CardTitle>Lê Nguyễn Thanh Bình</CardTitle>
-              <CardDescription>Intern Back-end Developer @ Nam Phuong Technology</CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4 text-sm text-muted-foreground">
-              <p>
-                <strong className="text-foreground">Học vấn:</strong> Saigon Technology University (2021–2025)
-              </p>
-              <p>
-                <strong className="text-foreground">GPA:</strong> 3.1 / 4.0
-              </p>
-              <p>
-                <strong className="text-foreground">Mục tiêu:</strong> Trở thành Back-end Developer tạo ra hệ thống bền vững,
-                dễ mở rộng và dễ bảo trì.
-              </p>
+          <div className="space-y-4 md:pt-6">
+            <Card className="border-border/70 bg-card/80 shadow-sm backdrop-blur transition-transform duration-300 hover:-translate-y-1">
+              <CardHeader className="items-center text-center">
+                <Avatar className="h-24 w-24 border border-border/70">
+                  <AvatarFallback className="text-xl font-semibold">LB</AvatarFallback>
+                </Avatar>
+                <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
+                <CardDescription>Intern Back-end Developer @ Nam Phuong Technology</CardDescription>
+              </CardHeader>
+              <CardContent className="space-y-3 text-sm text-muted-foreground">
+                <p>
+                  <strong className="text-foreground">Học vấn:</strong> Saigon Technology University (2021–2025)
+                </p>
+                <p>
+                  <strong className="text-foreground">Mục tiêu:</strong> Trở thành Back-end Developer tạo ra hệ thống bền vững, dễ mở rộng.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        <section id="about" className="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-start">
+          <h2 className="text-2xl font-semibold md:text-3xl">Giới thiệu</h2>
+          <Card className="border-border/70 bg-card/70">
+            <CardContent className="p-6 text-muted-foreground">
+              Developer có kinh nghiệm với C#, Vue.js, React Native, Flutter và SQL Server; tập trung xây dựng API và hệ thống backend
+              hiệu quả. Mình ưu tiên clean architecture, SOLID và chất lượng triển khai production.
             </CardContent>
           </Card>
         </section>
 
-        <section id="about" className="space-y-4">
-          <h2 className="text-2xl font-semibold md:text-3xl">Giới thiệu</h2>
-          <p className="max-w-4xl text-muted-foreground">
-            Developer có kinh nghiệm với C#, Vue.js, React Native, Flutter và SQL Server; tập trung xây dựng API và hệ thống
-            backend hiệu quả. Mình ưu tiên clean architecture, SOLID, và trải nghiệm vận hành ổn định khi triển khai thực tế.
-          </p>
-        </section>
-
         <section id="skills" className="space-y-6">
           <h2 className="text-2xl font-semibold md:text-3xl">Kỹ năng</h2>
-          <div className="grid gap-4 md:grid-cols-2">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {skillGroups.map((group) => (
-              <Card key={group.title}>
+              <Card key={group.title} className="border-border/70 bg-card/75 transition-transform duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-lg">{group.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <Badge key={item} variant="outline">
+                    <Badge key={item} variant="outline" className="rounded-full px-3 py-1">
                       {item}
                     </Badge>
                   ))}
@@ -178,7 +210,7 @@ const Index = () => {
         <section id="experience" className="space-y-6">
           <h2 className="text-2xl font-semibold md:text-3xl">Kinh nghiệm</h2>
           {experiences.map((exp) => (
-            <Card key={exp.role}>
+            <Card key={exp.role} className="border-border/70 bg-card/75">
               <CardHeader>
                 <CardTitle className="text-xl">{exp.role}</CardTitle>
                 <CardDescription>
@@ -186,9 +218,12 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="list-disc space-y-2 pl-5 text-muted-foreground">
+                <ul className="space-y-3 border-l border-border pl-5 text-muted-foreground">
                   {exp.details.map((detail) => (
-                    <li key={detail}>{detail}</li>
+                    <li key={detail} className="relative">
+                      <span className="absolute -left-[1.45rem] top-2 h-2 w-2 rounded-full bg-primary" />
+                      {detail}
+                    </li>
                   ))}
                 </ul>
               </CardContent>
@@ -200,7 +235,10 @@ const Index = () => {
           <h2 className="text-2xl font-semibold md:text-3xl">Dự án nổi bật</h2>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
-              <Card key={project.name} className="flex h-full flex-col">
+              <Card
+                key={project.name}
+                className="flex h-full flex-col border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              >
                 <CardHeader>
                   <CardTitle className="text-lg">{project.name}</CardTitle>
                   <CardDescription>{project.period}</CardDescription>
@@ -210,7 +248,7 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">{project.team}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((tech) => (
-                      <Badge key={tech} variant="secondary">
+                      <Badge key={tech} variant="secondary" className="rounded-full px-3 py-1">
                         {tech}
                       </Badge>
                     ))}
@@ -228,14 +266,16 @@ const Index = () => {
           </div>
         </section>
 
-        <section id="contact" className="space-y-5 pb-10">
-          <h2 className="text-2xl font-semibold md:text-3xl">Liên hệ</h2>
-          <Card>
-            <CardContent className="space-y-4 pt-6 text-muted-foreground">
-              <p>
-                Mình sẵn sàng cho cơ hội <strong className="text-foreground">Back-end Developer</strong> hoặc vị trí thực tập nâng cao.
-              </p>
-              <div className="flex flex-wrap gap-3">
+        <section id="contact" className="pb-10">
+          <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-card via-card to-accent/30">
+            <CardContent className="grid gap-6 p-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
+              <div className="space-y-3">
+                <h2 className="text-2xl font-semibold md:text-3xl">Sẵn sàng cho cơ hội mới</h2>
+                <p className="text-muted-foreground">
+                  Mình đang tìm kiếm vị trí Back-end Developer để đóng góp vào sản phẩm thực tế với tư duy hệ thống và chất lượng code.
+                </p>
+              </div>
+              <div className="flex flex-wrap gap-3 md:justify-end">
                 <Button asChild>
                   <a href="mailto:your-email@example.com">Email (cập nhật)</a>
                 </Button>
@@ -245,13 +285,12 @@ const Index = () => {
                   </a>
                 </Button>
               </div>
-              <p className="text-sm">Bạn có thể cập nhật email/số điện thoại thật ngay trong mục này để gửi nhà tuyển dụng.</p>
             </CardContent>
           </Card>
         </section>
       </main>
 
-      <footer className="border-t py-6">
+      <footer className="border-t border-border/60 py-6">
         <div className="container text-sm text-muted-foreground">© {new Date().getFullYear()} Lê Nguyễn Thanh Bình • Portfolio</div>
       </footer>
     </div>
@@ -259,4 +298,3 @@ const Index = () => {
 };
 
 export default Index;
-
