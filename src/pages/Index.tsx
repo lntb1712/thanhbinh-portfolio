@@ -251,6 +251,8 @@ const Index = () => {
         </section>
       </main>
 
+      <NetworkSpeedTool />
+
       <footer className="border-t border-border/40 py-5 md:py-6">
         <div className="container text-center text-xs text-muted-foreground md:text-sm">
           © {new Date().getFullYear()} Lê Nguyễn Thanh Bình • Portfolio

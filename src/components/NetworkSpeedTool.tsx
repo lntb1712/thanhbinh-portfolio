@@ -1,7 +1,5 @@
-import { useState } from "react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 type ConnectionInfo = {
   effectiveType?: string;
@@ -15,7 +13,8 @@ type SpeedResult = ConnectionInfo & {
 };
 
 const TEST_FILE_URL = "/LeNguyenThanhBinh_Backend.pdf";
-const TEST_ROUNDS = 3;
+const TEST_ROUNDS = 2;
+const MEASURE_INTERVAL_MS = 15000;
 
 const getConnectionInfo = (): ConnectionInfo => {
   const nav = navigator as Navigator & {
@@ -33,11 +32,15 @@ const formatNumber = (value?: number, digits = 1) => {
 };
 
 const NetworkSpeedTool = () => {
-  const [isTesting, setIsTesting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [isTesting, setIsTesting] = useState(true);
   const [result, setResult] = useState<SpeedResult | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const measuringRef = useRef(false);
 
-  const handleMeasureSpeed = async () => {
+  const measureSpeed = useCallback(async () => {
+    if (measuringRef.current) return;
+
+    measuringRef.current = true;
     setIsTesting(true);
     setError(null);
 
@@ -66,44 +69,34 @@ const NetworkSpeedTool = () => {
         ...getConnectionInfo(),
       });
     } catch {
-      setError("Đo tốc độ thất bại, bạn thử lại giúp mình nhé.");
+      setError("Đang chờ mạng ổn định...");
     } finally {
+      measuringRef.current = false;
       setIsTesting(false);
     }
-  };
+  }, []);
+
+  useEffect(() => {
+    void measureSpeed();
+    const timer = window.setInterval(() => {
+      void measureSpeed();
+    }, MEASURE_INTERVAL_MS);
+
+    return () => {
+      window.clearInterval(timer);
+    };
+  }, [measureSpeed]);
 
   return (
-    <Card className="portfolio-panel border-border/50">
-      <CardHeader className="space-y-2">
-        <CardTitle className="text-lg md:text-xl">Công cụ đo tốc độ mạng</CardTitle>
-        <p className="text-sm text-muted-foreground">
-          Nhấn đo để ước lượng tốc độ tải xuống thực tế và kiểm tra chất lượng kết nối hiện tại.
-        </p>
-      </CardHeader>
-
-      <CardContent className="space-y-4">
-        <Button onClick={handleMeasureSpeed} disabled={isTesting} className="h-9 px-4 text-sm md:h-10">
-          {isTesting ? "Đang đo..." : "Đo tốc độ ngay"}
-        </Button>
-
-        {error ? <p className="text-sm text-destructive">{error}</p> : null}
-
-        {result ? (
-          <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-            <Badge variant="secondary" className="justify-center rounded-md px-3 py-2 text-xs md:text-sm">
-              Tốc độ: {formatNumber(result.measuredMbps, 2)} Mbps
-            </Badge>
-            <Badge variant="secondary" className="justify-center rounded-md px-3 py-2 text-xs md:text-sm">
-              RTT: {formatNumber(result.rtt, 0)} ms
-            </Badge>
-            <Badge variant="secondary" className="justify-center rounded-md px-3 py-2 text-xs md:text-sm">
-              Kết nối: {result.effectiveType?.toUpperCase() ?? "N/A"}
-            </Badge>
-            <Badge variant="secondary" className="justify-center rounded-md px-3 py-2 text-xs md:text-sm">
-              Data Saver: {result.saveData ? "Bật" : "Tắt"}
-            </Badge>
-          </div>
-        ) : null}
+    <Card className="portfolio-panel fixed bottom-4 left-3 z-50 w-[180px] border-border/60 bg-background/85 shadow-lg backdrop-blur-xl sm:bottom-5 sm:left-5 sm:w-[210px]">
+      <CardContent className="space-y-1.5 p-3">
+        <p className="text-[10px] font-semibold tracking-[0.08em] text-muted-foreground">NETWORK MONITOR</p>
+        <p className="text-sm font-semibold text-foreground">{formatNumber(result?.measuredMbps, 2)} Mbps</p>
+        <div className="space-y-1 text-[11px] text-muted-foreground">
+          <p>RTT: {formatNumber(result?.rtt, 0)} ms</p>
+          <p>{result?.effectiveType?.toUpperCase() ?? "N/A"}</p>
+          <p>{isTesting ? "Đang đo..." : error ?? "Tự động cập nhật 15s"}</p>
+        </div>
       </CardContent>
     </Card>
   );
