@@ -123,7 +123,6 @@ const Index = () => {
                 <AvatarFallback className="bg-primary/15 text-lg font-semibold text-primary-foreground">LB</AvatarFallback>
               </Avatar>
               <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
-              <CardDescription>Intern Back-end Developer @ Nam Phuong Technology</CardDescription>
             </CardHeader>
             <CardContent className="space-y-3 text-sm text-muted-foreground">
               <p>
