@@ -2,6 +2,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import NetworkSpeedTool from "@/components/NetworkSpeedTool";
 import profileAvatar from "@/assets/profile-avatar.jpg";
 
 const skillGroups = [
@@ -57,6 +58,7 @@ const navItems = [
   { href: "#skills", label: "Skills" },
   { href: "#experience", label: "Experience" },
   { href: "#projects", label: "Projects" },
+  { href: "#network", label: "Network" },
   { href: "#contact", label: "Contact" },
 ];
 
@@ -223,6 +225,11 @@ const Index = () => {
               </Card>
             ))}
           </div>
+        </section>
+
+        <section id="network" className="space-y-5 md:space-y-6">
+          <h2 className="text-2xl font-semibold md:text-3xl">Network Speed</h2>
+          <NetworkSpeedTool />
         </section>
 
         <section id="contact" className="pb-8 md:pb-10">
