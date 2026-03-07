@@ -4,26 +4,11 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 
 const skillGroups = [
-  {
-    title: "Ngôn ngữ",
-    items: ["C#", "Dart", "TypeScript"],
-  },
-  {
-    title: "Back-end",
-    items: ["ASP.NET Core", "RESTful APIs"],
-  },
-  {
-    title: "Database",
-    items: ["SQL Server", "SQLite"],
-  },
-  {
-    title: "Front-end",
-    items: ["Flutter", "React Native", "Vue.js"],
-  },
-  {
-    title: "Khác",
-    items: ["JWT", "SOLID", "Docker", "LINQ", "Azure", "Quartz", "OneSignal"],
-  },
+  { title: "Ngôn ngữ", items: ["C#", "Dart", "TypeScript"] },
+  { title: "Back-end", items: ["ASP.NET Core", "RESTful APIs"] },
+  { title: "Database", items: ["SQL Server", "SQLite"] },
+  { title: "Front-end", items: ["Flutter", "React Native", "Vue.js"] },
+  { title: "Khác", items: ["JWT", "SOLID", "Docker", "LINQ", "Azure", "Quartz", "OneSignal"] },
 ];
 
 const experiences = [
@@ -44,24 +29,21 @@ const projects = [
   {
     name: "E-Office",
     period: "12/2025 – 02/2026",
-    description:
-      "Hệ thống eOffice nội bộ quản lý tài liệu, quy trình phê duyệt, chat nội bộ và luồng ủy quyền số.",
+    description: "Hệ thống eOffice nội bộ quản lý tài liệu, quy trình phê duyệt, chat nội bộ và luồng ủy quyền số.",
     team: "Team size: 6",
     stack: ["ASP.NET Core Web API", "SQL Server", "SOLID", "LINQ", "Azure", "OneSignal"],
   },
   {
     name: "Aircraft Catering Delivery",
     period: "01/2026 – 02/2026",
-    description:
-      "Hệ thống quản lý giao suất ăn hàng không: điều phối giao hàng, kiểm soát kho, và lập lịch nhân sự.",
+    description: "Hệ thống quản lý giao suất ăn hàng không: điều phối giao hàng, kiểm soát kho, và lập lịch nhân sự.",
     team: "Team size: 6",
     stack: ["ASP.NET Core Web API", "SQL Server", "Quartz", "SOLID", "LINQ", "Azure"],
   },
   {
     name: "Chrome Operation Management System",
     period: "06/2025 – 08/2025",
-    description:
-      "Hệ thống tối ưu quy trình tồn kho và sản xuất, nâng cao khả năng theo dõi, ra quyết định và giảm chi phí.",
+    description: "Hệ thống tối ưu quy trình tồn kho và sản xuất, nâng cao khả năng theo dõi, ra quyết định và giảm chi phí.",
     team: "Team size: 2",
     stack: ["C# WPF", "Flutter", "ASP.NET Core Web API", "SQL Server", "JWT", "DI"],
     github: "https://github.com/lntb1712/Chrome.git",
@@ -69,31 +51,24 @@ const projects = [
 ];
 
 const navItems = [
-  { href: "#about", label: "Giới thiệu" },
-  { href: "#skills", label: "Kỹ năng" },
-  { href: "#experience", label: "Kinh nghiệm" },
-  { href: "#projects", label: "Dự án" },
-  { href: "#contact", label: "Liên hệ" },
-];
-
-const highlights = [
-  { label: "Kinh nghiệm thực chiến", value: "3+ dự án" },
-  { label: "GPA", value: "3.1 / 4.0" },
-  { label: "Core stack", value: "ASP.NET Core" },
+  { href: "#about", label: "About" },
+  { href: "#skills", label: "Skills" },
+  { href: "#experience", label: "Experience" },
+  { href: "#projects", label: "Projects" },
+  { href: "#contact", label: "Contact" },
 ];
 
 const Index = () => {
   return (
-    <div className="relative min-h-screen scroll-smooth overflow-x-clip bg-background text-foreground">
+    <div className="portfolio-bg relative min-h-screen overflow-x-clip text-foreground">
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute left-[-15%] top-[-8rem] h-72 w-72 rounded-full bg-primary/15 blur-3xl md:h-96 md:w-96" />
-        <div className="absolute right-[-12%] top-[22rem] h-80 w-80 rounded-full bg-accent/40 blur-3xl md:h-[28rem] md:w-[28rem]" />
-        <div className="absolute bottom-[-10rem] left-1/3 h-72 w-72 rounded-full bg-secondary/70 blur-3xl md:h-96 md:w-96" />
+        <div className="portfolio-glow absolute left-[-10rem] top-[-6rem] h-[28rem] w-[28rem] rounded-full" />
+        <div className="portfolio-glow-secondary absolute bottom-[12%] right-[-8rem] h-[24rem] w-[24rem] rounded-full" />
       </div>
 
-      <header className="sticky top-0 z-30 border-b border-border/60 bg-background/80 backdrop-blur-lg">
+      <header className="sticky top-0 z-40 border-b border-border/40 bg-background/30 backdrop-blur-xl">
         <nav className="container flex h-16 items-center justify-between">
-          <a href="#home" className="text-sm font-semibold tracking-[0.2em]">
+          <a href="#home" className="text-sm font-semibold tracking-[0.22em] text-primary-foreground/95">
             LNTB
           </a>
           <div className="hidden items-center gap-6 md:flex">
@@ -103,7 +78,7 @@ const Index = () => {
               </a>
             ))}
           </div>
-          <Button asChild size="sm" className="hidden md:inline-flex">
+          <Button asChild size="sm" variant="secondary" className="md:inline-flex">
             <a href="/LeNguyenThanhBinh_Backend.pdf" download>
               Tải CV
             </a>
@@ -111,21 +86,21 @@ const Index = () => {
         </nav>
       </header>
 
-      <main id="home" className="container space-y-20 py-10 md:space-y-24 md:py-16">
-        <section className="grid items-start gap-8 md:grid-cols-[1.15fr_0.85fr] md:gap-12">
-          <div className="relative space-y-6 md:space-y-8">
-            <Badge variant="secondary" className="w-fit rounded-full px-4 py-1 text-xs tracking-wide">
+      <main id="home" className="container space-y-20 py-12 md:space-y-28 md:py-16">
+        <section className="grid items-start gap-10 md:grid-cols-[1.2fr_0.8fr]">
+          <div className="space-y-6 md:space-y-8">
+            <Badge className="rounded-full border-border/60 bg-secondary/40 px-4 py-1 text-[11px] tracking-[0.16em] text-secondary-foreground">
               BACK-END DEVELOPER
             </Badge>
 
             <h1 className="max-w-3xl text-4xl font-bold leading-[1.05] md:text-6xl">
-              Lê Nguyễn Thanh Bình —
-              <span className="block text-muted-foreground">Build backend systems that scale cleanly.</span>
+              I build robust APIs
+              <span className="block text-muted-foreground">and scalable backend systems.</span>
             </h1>
 
             <p className="max-w-2xl text-base text-muted-foreground md:text-lg">
-              Mình tập trung vào <strong className="text-foreground">ASP.NET Core</strong>, API design và database optimization để tạo ra sản
-              phẩm ổn định, dễ mở rộng và dễ maintain cho doanh nghiệp.
+              Xin chào, mình là <span className="text-foreground">Lê Nguyễn Thanh Bình</span> — tập trung vào ASP.NET Core, thiết kế RESTful APIs,
+              và tối ưu database để ship sản phẩm production-ready.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -134,70 +109,52 @@ const Index = () => {
               </Button>
               <Button asChild variant="outline">
                 <a href="https://github.com/lntb1712" target="_blank" rel="noreferrer">
-                  Xem GitHub
-                </a>
-              </Button>
-              <Button asChild variant="secondary">
-                <a href="/LeNguyenThanhBinh_Backend.pdf" download>
-                  Tải CV
+                  GitHub
                 </a>
               </Button>
             </div>
-
-            <div className="grid gap-3 sm:grid-cols-3">
-              {highlights.map((item) => (
-                <Card key={item.label} className="border-border/70 bg-card/80 backdrop-blur">
-                  <CardContent className="p-4">
-                    <p className="text-xs uppercase tracking-wide text-muted-foreground">{item.label}</p>
-                    <p className="mt-1 text-sm font-semibold">{item.value}</p>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
           </div>
 
-          <div className="space-y-4 md:pt-6">
-            <Card className="border-border/70 bg-card/80 shadow-sm backdrop-blur transition-transform duration-300 hover:-translate-y-1">
-              <CardHeader className="items-center text-center">
-                <Avatar className="h-24 w-24 border border-border/70">
-                  <AvatarFallback className="text-xl font-semibold">LB</AvatarFallback>
-                </Avatar>
-                <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
-                <CardDescription>Intern Back-end Developer @ Nam Phuong Technology</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-3 text-sm text-muted-foreground">
-                <p>
-                  <strong className="text-foreground">Học vấn:</strong> Saigon Technology University (2021–2025)
-                </p>
-                <p>
-                  <strong className="text-foreground">Mục tiêu:</strong> Trở thành Back-end Developer tạo ra hệ thống bền vững, dễ mở rộng.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
+          <Card className="portfolio-panel border-border/50">
+            <CardHeader className="items-center text-center">
+              <Avatar className="h-24 w-24 border border-border/60">
+                <AvatarFallback className="bg-primary/15 text-lg font-semibold text-primary-foreground">LB</AvatarFallback>
+              </Avatar>
+              <CardTitle className="text-2xl">Lê Nguyễn Thanh Bình</CardTitle>
+              <CardDescription>Intern Back-end Developer @ Nam Phuong Technology</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-3 text-sm text-muted-foreground">
+              <p>
+                <strong className="text-foreground">Education:</strong> Saigon Technology University (2021–2025)
+              </p>
+              <p>
+                <strong className="text-foreground">GPA:</strong> 3.1 / 4.0
+              </p>
+            </CardContent>
+          </Card>
         </section>
 
-        <section id="about" className="grid gap-4 md:grid-cols-[0.9fr_1.1fr] md:items-start">
-          <h2 className="text-2xl font-semibold md:text-3xl">Giới thiệu</h2>
-          <Card className="border-border/70 bg-card/70">
-            <CardContent className="p-6 text-muted-foreground">
-              Developer có kinh nghiệm với C#, Vue.js, React Native, Flutter và SQL Server; tập trung xây dựng API và hệ thống backend
-              hiệu quả. Mình ưu tiên clean architecture, SOLID và chất lượng triển khai production.
+        <section id="about" className="grid gap-6 md:grid-cols-[0.85fr_1.15fr] md:items-start">
+          <h2 className="text-3xl font-semibold">About</h2>
+          <Card className="portfolio-panel border-border/50">
+            <CardContent className="p-6 leading-relaxed text-muted-foreground">
+              Developer có kinh nghiệm với C#, Flutter, Vue.js, React Native và SQL Server; tập trung xây dựng API hiệu năng cao,
+              maintainable architecture, và quy trình triển khai ổn định cho sản phẩm doanh nghiệp.
             </CardContent>
           </Card>
         </section>
 
         <section id="skills" className="space-y-6">
-          <h2 className="text-2xl font-semibold md:text-3xl">Kỹ năng</h2>
+          <h2 className="text-3xl font-semibold">Skills</h2>
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {skillGroups.map((group) => (
-              <Card key={group.title} className="border-border/70 bg-card/75 transition-transform duration-300 hover:-translate-y-1">
+              <Card key={group.title} className="portfolio-panel border-border/50 transition-transform duration-300 hover:-translate-y-1">
                 <CardHeader>
                   <CardTitle className="text-lg">{group.title}</CardTitle>
                 </CardHeader>
                 <CardContent className="flex flex-wrap gap-2">
                   {group.items.map((item) => (
-                    <Badge key={item} variant="outline" className="rounded-full px-3 py-1">
+                    <Badge key={item} variant="outline" className="rounded-full border-border/60 bg-secondary/25 px-3 py-1">
                       {item}
                     </Badge>
                   ))}
@@ -208,9 +165,9 @@ const Index = () => {
         </section>
 
         <section id="experience" className="space-y-6">
-          <h2 className="text-2xl font-semibold md:text-3xl">Kinh nghiệm</h2>
+          <h2 className="text-3xl font-semibold">Work Experience</h2>
           {experiences.map((exp) => (
-            <Card key={exp.role} className="border-border/70 bg-card/75">
+            <Card key={exp.role} className="portfolio-panel border-border/50">
               <CardHeader>
                 <CardTitle className="text-xl">{exp.role}</CardTitle>
                 <CardDescription>
@@ -218,7 +175,7 @@ const Index = () => {
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 border-l border-border pl-5 text-muted-foreground">
+                <ul className="space-y-3 border-l border-primary/40 pl-5 text-muted-foreground">
                   {exp.details.map((detail) => (
                     <li key={detail} className="relative">
                       <span className="absolute -left-[1.45rem] top-2 h-2 w-2 rounded-full bg-primary" />
@@ -232,13 +189,10 @@ const Index = () => {
         </section>
 
         <section id="projects" className="space-y-6">
-          <h2 className="text-2xl font-semibold md:text-3xl">Dự án nổi bật</h2>
+          <h2 className="text-3xl font-semibold">Featured Projects</h2>
           <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
             {projects.map((project) => (
-              <Card
-                key={project.name}
-                className="flex h-full flex-col border-border/70 bg-card/80 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
-              >
+              <Card key={project.name} className="portfolio-panel flex h-full flex-col border-border/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_0_40px_hsl(var(--primary)/0.22)]">
                 <CardHeader>
                   <CardTitle className="text-lg">{project.name}</CardTitle>
                   <CardDescription>{project.period}</CardDescription>
@@ -248,13 +202,13 @@ const Index = () => {
                   <p className="text-sm text-muted-foreground">{project.team}</p>
                   <div className="flex flex-wrap gap-2">
                     {project.stack.map((tech) => (
-                      <Badge key={tech} variant="secondary" className="rounded-full px-3 py-1">
+                      <Badge key={tech} variant="secondary" className="rounded-full bg-secondary/40 px-3 py-1 text-secondary-foreground">
                         {tech}
                       </Badge>
                     ))}
                   </div>
                   {project.github ? (
-                    <Button asChild variant="outline" className="mt-auto w-fit">
+                    <Button asChild variant="outline" className="mt-auto w-fit border-primary/50 bg-background/30 hover:bg-accent/50">
                       <a href={project.github} target="_blank" rel="noreferrer">
                         Xem source code
                       </a>
@@ -267,13 +221,11 @@ const Index = () => {
         </section>
 
         <section id="contact" className="pb-10">
-          <Card className="overflow-hidden border-border/70 bg-gradient-to-br from-card via-card to-accent/30">
-            <CardContent className="grid gap-6 p-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
-              <div className="space-y-3">
-                <h2 className="text-2xl font-semibold md:text-3xl">Sẵn sàng cho cơ hội mới</h2>
-                <p className="text-muted-foreground">
-                  Mình đang tìm kiếm vị trí Back-end Developer để đóng góp vào sản phẩm thực tế với tư duy hệ thống và chất lượng code.
-                </p>
+          <Card className="portfolio-panel border-border/50 bg-gradient-to-r from-card/70 to-accent/30">
+            <CardContent className="grid gap-5 p-6 md:grid-cols-[1.1fr_0.9fr] md:items-center md:p-8">
+              <div>
+                <h2 className="text-3xl font-semibold">Contact</h2>
+                <p className="mt-2 text-muted-foreground">Sẵn sàng cho cơ hội Back-end Developer và các dự án thực tế.</p>
               </div>
               <div className="flex flex-wrap gap-3 md:justify-end">
                 <Button asChild>
@@ -290,7 +242,7 @@ const Index = () => {
         </section>
       </main>
 
-      <footer className="border-t border-border/60 py-6">
+      <footer className="border-t border-border/40 py-6">
         <div className="container text-sm text-muted-foreground">© {new Date().getFullYear()} Lê Nguyễn Thanh Bình • Portfolio</div>
       </footer>
     </div>
