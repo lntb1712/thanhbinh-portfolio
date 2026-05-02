@@ -4,7 +4,7 @@ import { cn } from "@/lib/utils";
 type ScrollRevealProps = {
   children: ReactNode;
   className?: string;
-  direction?: "left" | "right";
+  direction?: "left" | "right" | "up" | "down";
 };
 
 const ScrollReveal = ({ children, className, direction = "left" }: ScrollRevealProps) => {
@@ -42,12 +42,16 @@ const ScrollReveal = ({ children, className, direction = "left" }: ScrollRevealP
     <div
       ref={containerRef}
       className={cn(
-        "motion-reduce:translate-x-0 motion-reduce:opacity-100 transition-all duration-700 ease-out",
+        "motion-reduce:translate-x-0 motion-reduce:translate-y-0 motion-reduce:opacity-100 transition-all duration-700 ease-out",
         isVisible
-          ? "translate-x-0 opacity-100"
+          ? "translate-x-0 translate-y-0 opacity-100"
           : direction === "left"
             ? "-translate-x-10 opacity-0 md:-translate-x-16"
-            : "translate-x-10 opacity-0 md:translate-x-16",
+            : direction === "right"
+              ? "translate-x-10 opacity-0 md:translate-x-16"
+              : direction === "up"
+                ? "translate-y-10 opacity-0 md:translate-y-16"
+                : "-translate-y-10 opacity-0 md:-translate-y-16",
         className,
       )}
     >
